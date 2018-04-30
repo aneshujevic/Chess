@@ -1,3 +1,9 @@
+# C++ files
 *.out
 *.o
+
 *.txt
+
+# VSCode files
+.vscode/
+*.json
