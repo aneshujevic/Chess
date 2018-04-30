@@ -99,6 +99,7 @@ void Tabla::prikaz()
 {
   for (auto i = 0; i < 8; i++)
   {
+    std::cout << i + 1 << " ";
     for (auto j = 0; j < 8; j++)
     {
       if (tabla[i][j])
@@ -113,4 +114,5 @@ void Tabla::prikaz()
     }
     std::cout << std::endl;
   }
+  std::cout << "  A B C D E F G H" << std::endl;
 }
