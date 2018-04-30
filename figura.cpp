@@ -46,8 +46,7 @@ int Figura::get_x()
   return pozicija_x;
 }
 
-std::string
-Figura::get_simbol()
+std::string Figura::get_simbol()
 {
   return simbol;
 }
