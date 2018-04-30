@@ -103,7 +103,7 @@ Tabla::prikaz()
     for(auto j=0;j<8;j++)
     {
       if (tabla[i][j])
-        std::cout<<tabla[i][j]->get_simbol();
+        std::cout<<tabla[i][j]->get_simbol()<< " ";
       else
       {
         if (i%2 == j%2)
@@ -111,7 +111,7 @@ Tabla::prikaz()
         else
           std::cout<<"⬜";
       }
-      std::cout<<std::endl;
     }
+    std::cout<<std::endl;
   }
 }
