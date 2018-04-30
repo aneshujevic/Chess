@@ -2,8 +2,7 @@
 #define TABLA_H
 #include "figura.h"
 
-class
-Tabla
+class Tabla
 {
 private:
   Figura ***tabla;
@@ -13,6 +12,5 @@ public:
   ~Tabla();
   void prikaz();
 };
-
 
 #endif

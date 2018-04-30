@@ -1,10 +1,9 @@
 #include "tabla.h"
 
-int
-main()
+int main()
 {
   Tabla prva;
   prva.prikaz();
-  
+
   return 0;
 }

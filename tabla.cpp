@@ -10,10 +10,10 @@
 
 Tabla::Tabla()
 {
-  tabla = new Figura**[8];
+  tabla = new Figura **[8];
   for (int i = 0; i < 8; i++)
   {
-    tabla[i] = new Figura*[8];
+    tabla[i] = new Figura *[8];
   }
 
   for (int i = 0; i < 8; i++)
@@ -30,7 +30,7 @@ Tabla::Tabla()
         {
           tabla[i][j] = new Konj(i, j, false);
         }
-        else if (j == 2 || j==5 )
+        else if (j == 2 || j == 5)
         {
           tabla[i][j] = new Lovac(i, j, false);
         }
@@ -43,11 +43,11 @@ Tabla::Tabla()
           tabla[i][j] = new Kralj(i, j, false);
         }
       }
-      else if(i == 1)
+      else if (i == 1)
       {
         tabla[i][j] = new Pijun(i, j, false);
       }
-      else if(i == 6)
+      else if (i == 6)
       {
         tabla[i][j] = new Pijun(i, j, true);
       }
@@ -61,7 +61,7 @@ Tabla::Tabla()
         {
           tabla[i][j] = new Konj(i, j, true);
         }
-        else if (j == 2 || j==5 )
+        else if (j == 2 || j == 5)
         {
           tabla[i][j] = new Lovac(i, j, true);
         }
@@ -95,23 +95,22 @@ Tabla::~Tabla()
   delete[] tabla;
 }
 
-void
-Tabla::prikaz()
+void Tabla::prikaz()
 {
-  for(auto i=0;i<8;i++)
+  for (auto i = 0; i < 8; i++)
   {
-    for(auto j=0;j<8;j++)
+    for (auto j = 0; j < 8; j++)
     {
       if (tabla[i][j])
-        std::cout<<tabla[i][j]->get_simbol()<< " ";
+        std::cout << tabla[i][j]->get_simbol() << " ";
       else
       {
-        if (i%2 == j%2)
-          std::cout<<"⬛";
+        if (i % 2 == j % 2)
+          std::cout << "⬛";
         else
-          std::cout<<"⬜";
+          std::cout << "⬜";
       }
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
   }
 }
