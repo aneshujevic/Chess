@@ -2,11 +2,10 @@
 #define KONJ_H
 #include "../figura.h"
 
-class
-Konj : public Figura
+class Konj : public Figura
 {
 public:
-  Konj(int,int,bool);
+  Konj(int, int, bool);
   //TODO:POMERAJ
 };
 
