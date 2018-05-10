@@ -8,3 +8,4 @@ Kraljica::Kraljica(int x, int y, bool b) : Figura(b, x, y)
   else
     simbol = "\u265b";
 }
+void Kraljica::pomeri(int x,int y){}

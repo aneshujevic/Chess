@@ -6,7 +6,7 @@ class Top : public Figura
 {
 public:
   Top(int, int, bool);
-  //TODO:POMERAJ
+  void pomeri(int x,int y);
 };
 
 #endif

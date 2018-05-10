@@ -15,6 +15,11 @@ Figura::Figura(bool bela, int x, int y)
   simbol = "X";
 }
 
+bool Figura::get_bela(void)
+{
+  return bela;
+}
+
 void Figura::set_x(int x)
 {
   pozicija_x = x;

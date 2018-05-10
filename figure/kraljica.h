@@ -7,7 +7,7 @@ class Kraljica : public Figura
 {
 public:
   Kraljica(int, int, bool);
-  // TODO: pomeraj
+  void pomeri(int x,int y);
 };
 
 #endif
