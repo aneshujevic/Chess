@@ -7,7 +7,7 @@ class Pijun : public Figura
 {
 public:
   Pijun(int, int, bool);
-  // TODO: pomeraj
+  void pomeri(int x,int y);
 };
 
 #endif

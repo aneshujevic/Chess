@@ -8,3 +8,4 @@ Lovac::Lovac(int x, int y, bool b) : Figura(b, x, y)
   else
     simbol = "\u265d";
 }
+void Lovac::pomeri(int x,int y){}

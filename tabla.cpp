@@ -28,7 +28,7 @@ Tabla::Tabla()
         }
         else if (j == 1 || j == 6)
         {
-          tabla[i][j] = new Konj(i, j, false);
+          tabla[i][j] = new Konj(i, j, false, this);
         }
         else if (j == 2 || j == 5)
         {
@@ -40,7 +40,7 @@ Tabla::Tabla()
         }
         else if (j == 4)
         {
-          tabla[i][j] = new Kralj(i, j, false);
+          tabla[i][j] = new Kralj(i, j, false, this);
         }
       }
       else if (i == 1)
@@ -59,7 +59,7 @@ Tabla::Tabla()
         }
         else if (j == 1 || j == 6)
         {
-          tabla[i][j] = new Konj(i, j, true);
+          tabla[i][j] = new Konj(i, j, true, this);
         }
         else if (j == 2 || j == 5)
         {
@@ -71,7 +71,7 @@ Tabla::Tabla()
         }
         else if (j == 4)
         {
-          tabla[i][j] = new Kralj(i, j, true);
+          tabla[i][j] = new Kralj(i, j, true,this);
         }
       }
       else

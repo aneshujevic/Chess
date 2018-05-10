@@ -6,7 +6,7 @@ class Lovac : public Figura
 {
 public:
   Lovac(int, int, bool);
-  //TODO:POMERAJ
+  void pomeri(int x,int y);
 };
 
 #endif

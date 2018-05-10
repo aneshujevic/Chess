@@ -8,3 +8,4 @@ Top::Top(int x, int y, bool b) : Figura(b, x, y)
   else
     simbol = "\u265c";
 }
+void Top::pomeri(int x,int y){}

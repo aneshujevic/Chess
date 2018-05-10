@@ -8,3 +8,4 @@ Pijun::Pijun(int x, int y, bool b) : Figura(b, x, y)
   else
     simbol = "\u265f";
 }
+void Pijun::pomeri(int x,int y){}

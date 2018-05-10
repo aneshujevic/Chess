@@ -4,10 +4,8 @@
 
 class Tabla
 {
-private:
-  Figura ***tabla;
-
 public:
+  Figura ***tabla;
   Tabla();
   ~Tabla();
   void prikaz();
