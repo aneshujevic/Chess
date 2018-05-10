@@ -32,7 +32,7 @@ Tabla::Tabla()
         }
         else if (j == 2 || j == 5)
         {
-          tabla[i][j] = new Lovac(i, j, false);
+          tabla[i][j] = new Lovac(i, j, false, this);
         }
         else if (j == 3)
         {
@@ -63,7 +63,7 @@ Tabla::Tabla()
         }
         else if (j == 2 || j == 5)
         {
-          tabla[i][j] = new Lovac(i, j, true);
+          tabla[i][j] = new Lovac(i, j, true, this);
         }
         else if (j == 3)
         {
