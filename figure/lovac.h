@@ -7,9 +7,10 @@ class Lovac : public Figura
 {
 private:
   Tabla *prva;
+
 public:
-  Lovac(int, int, bool,Tabla *);
-  void pomeri(int x,int y);
+  Lovac(int, int, bool, Tabla *);
+  void pomeri(int x, int y);
 };
 
 #endif

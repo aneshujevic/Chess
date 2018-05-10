@@ -5,7 +5,6 @@
 #include <string>
 #include <iostream>
 
-
 using namespace std;
 
 class Figura
@@ -27,8 +26,7 @@ public:
   int get_x();
   int get_y();
   std::string get_simbol();
-  virtual void pomeri(int, int)=0;
-  //TODO: GET POZICIJA ,VIRTUAL POMERAJ
+  virtual void pomeri(int, int) = 0;
 };
 
 #endif

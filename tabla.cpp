@@ -45,11 +45,11 @@ Tabla::Tabla()
       }
       else if (i == 1)
       {
-        tabla[i][j] = new Pijun(i, j, false);
+        tabla[i][j] = new Pijun(i, j, false, this);
       }
       else if (i == 6)
       {
-        tabla[i][j] = new Pijun(i, j, true);
+        tabla[i][j] = new Pijun(i, j, true, this);
       }
       else if (i == 7)
       {
@@ -71,7 +71,7 @@ Tabla::Tabla()
         }
         else if (j == 4)
         {
-          tabla[i][j] = new Kralj(i, j, true,this);
+          tabla[i][j] = new Kralj(i, j, true, this);
         }
       }
       else
