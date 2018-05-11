@@ -35,6 +35,6 @@ bool make_input(string unos, int &x, int &y)
         cout << "Pogresan unos." << endl << "Pokusajte ponovo:" << endl;
         return false;
     }
-    x = 9 - broj - 1;
+    x = 8 - broj;
     return true;
 }

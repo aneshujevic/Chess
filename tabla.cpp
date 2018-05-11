@@ -16,7 +16,7 @@ Tabla::Tabla()
     tabla[i] = new Figura *[8];
   }
 
-  for (int i = 0; i< 8; i++)
+  for (int i = 0; i < 8; i++)
   {
     for (int j = 0; j < 8; j++)
     {
@@ -97,9 +97,9 @@ Tabla::~Tabla()
 
 void Tabla::prikaz()
 {
-  for (auto i = 0, j=8 ; i < 8; i++, j--)
+  for (auto i = 0; i < 8; i++)
   {
-    std::cout << j << " ";
+    std::cout << 8 - i << " ";
     for (auto j = 0; j < 8; j++)
     {
       if (tabla[i][j])
@@ -107,9 +107,11 @@ void Tabla::prikaz()
       else
       {
         if (i % 2 == j % 2)
-          std::cout << "⬛ ";
+          // std::cout << "⬛";
+          std::cout << "\u2b1b";
         else
-          std::cout << "⬜ ";
+          // std::cout << "⬜";
+          std::cout << "\u2b1c";
       }
     }
     std::cout << std::endl;
