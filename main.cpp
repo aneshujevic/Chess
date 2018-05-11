@@ -63,7 +63,7 @@ int main()
      }
      else if(prva.tabla[from_x][from_y] == nullptr )         
     {
-        cout<<"Ne postoji figura na toj poziciji1!"<<endl;
+        cout<<"Ne postoji figura na toj poziciji!"<<endl;
         wait_msg();
         continue;
     }

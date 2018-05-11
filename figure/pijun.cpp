@@ -62,7 +62,7 @@ bool Pijun::pomeri(int x, int y)
     }
     else
     {
-      cout << "Nije moguce izvrsiti potez" << endl;
+      cout << "Nije moguce izvrsiti potez." << endl;
       return false;
     }
   }
@@ -107,7 +107,7 @@ bool Pijun::pomeri(int x, int y)
       return true;
     }
     else
-      cout << "Nije moguce izvrsiti poteza" << endl;
+      cout << "Nije moguce izvrsiti potez." << endl;
       return false;
   }
 }
