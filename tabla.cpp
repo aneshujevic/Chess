@@ -16,7 +16,7 @@ Tabla::Tabla()
     tabla[i] = new Figura *[8];
   }
 
-  for (int i = 0; i < 8; i++)
+  for (int i = 0; i< 8; i++)
   {
     for (int j = 0; j < 8; j++)
     {
@@ -24,7 +24,7 @@ Tabla::Tabla()
       {
         if (j == 0 || j == 7)
         {
-          tabla[i][j] = new Top(i, j, false);
+          tabla[i][j] = new Top(i, j, false, this);
         }
         else if (j == 1 || j == 6)
         {
@@ -36,7 +36,7 @@ Tabla::Tabla()
         }
         else if (j == 3)
         {
-          tabla[i][j] = new Kraljica(i, j, false);
+          tabla[i][j] = new Kraljica(i, j, false, this);
         }
         else if (j == 4)
         {
@@ -55,7 +55,7 @@ Tabla::Tabla()
       {
         if (j == 0 || j == 7)
         {
-          tabla[i][j] = new Top(i, j, true);
+          tabla[i][j] = new Top(i, j, true, this);
         }
         else if (j == 1 || j == 6)
         {
@@ -67,7 +67,7 @@ Tabla::Tabla()
         }
         else if (j == 3)
         {
-          tabla[i][j] = new Kraljica(i, j, true);
+          tabla[i][j] = new Kraljica(i, j, true, this);
         }
         else if (j == 4)
         {
@@ -97,9 +97,9 @@ Tabla::~Tabla()
 
 void Tabla::prikaz()
 {
-  for (auto i = 0; i < 8; i++)
+  for (auto i = 0, j=8 ; i < 8; i++, j--)
   {
-    std::cout << i + 1 << " ";
+    std::cout << j << " ";
     for (auto j = 0; j < 8; j++)
     {
       if (tabla[i][j])
@@ -107,9 +107,9 @@ void Tabla::prikaz()
       else
       {
         if (i % 2 == j % 2)
-          std::cout << "⬛";
+          std::cout << "⬛ ";
         else
-          std::cout << "⬜";
+          std::cout << "⬜ ";
       }
     }
     std::cout << std::endl;

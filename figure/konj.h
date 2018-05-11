@@ -11,7 +11,7 @@ private:
 
 public:
   Konj(int, int, bool, Tabla *);
-  void pomeri(int x, int y);
+  bool pomeri(int x, int y);
 };
 
 #endif

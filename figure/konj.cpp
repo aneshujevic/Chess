@@ -10,12 +10,12 @@ Konj::Konj(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
     simbol = "\u265e";
 }
 
-void Konj::pomeri(int x, int y)
+bool Konj::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
     cout << "Nije moguce izvrsiti potez." << endl;
-    return;
+    return false;
   }
 
   if ((abs(pozicija_x - x) == 2 && abs(pozicija_y - y) == 1) ||
@@ -26,11 +26,11 @@ void Konj::pomeri(int x, int y)
       if (prva->tabla[x][y]->get_bela() == this->get_bela())
       {
         cout << "Nije moguce izvrsiti potez." << endl;
-        return;
+        return false;
       }
       else
       {
-        //TODO: SLANJE NA GROBLJE POJEBENE FIGURE
+        //TODO: SLANJE NA GROBLJE  FIGURE
       }
     }
     int px = pozicija_x;
@@ -39,5 +39,11 @@ void Konj::pomeri(int x, int y)
     pozicija_y = y;
     prva->tabla[x][y] = this;
     prva->tabla[px][py] = nullptr;
+    return true;
+  }
+  else
+  {
+    cout << "Nije moguce izvrsiti potez." << endl;
+    return false;
   }
 }

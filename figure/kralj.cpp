@@ -11,18 +11,18 @@ Kralj::Kralj(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
     simbol = "\u265a";
 }
 
-void Kralj::pomeri(int x, int y)
+bool Kralj::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
     cout << "Nije moguce izvrsiti potez." << endl;
-    return;
+    return false;
   }
 
-  if (abs(x - pozicija_x) != 1 || abs(y - pozicija_y) != 1)
+  if (abs(x - pozicija_x) > 1 || abs(y - pozicija_y) > 1)
   {
-    cout << "Nije moguce izvrsiti potez." << endl;
-    return;
+    cout << "Nije moguce izvrsiti potez. Krece se vise od jednog polja." << endl;
+    return false;
   }
 
   if (prva->tabla[x][y] != NULL)
@@ -30,11 +30,11 @@ void Kralj::pomeri(int x, int y)
     if (prva->tabla[x][y]->get_bela() == this->get_bela())
     {
       cout << "Nije moguce izvrsiti potez." << endl;
-      return;
+      return false;
     }
     else
     {
-      //TODO SLANJE NA GROBALJE POJEBENE FIGURE
+      //TODO SLANJE NA GROBLJE  FIGURE
     }
   }
   int px = pozicija_x;
@@ -43,4 +43,5 @@ void Kralj::pomeri(int x, int y)
   pozicija_y = y;
   prva->tabla[x][y] = this;
   prva->tabla[px][py] = nullptr;
+  return true;
 }

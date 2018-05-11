@@ -11,12 +11,12 @@ Pijun::Pijun(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
     simbol = "\u265f";
 }
 
-void Pijun::pomeri(int x, int y)
+bool Pijun::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
     cout << "Nije moguce izvrsiti potez (polje se ne nalazi na tabli)." << endl;
-    return;
+    return false;
   }
 
   if (bela)
@@ -31,13 +31,13 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
-      return;
+      return true;
     }
 
     if (x > pozicija_x || y != pozicija_y)
     {
       cout << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << endl;
-      return;
+      return false;
     }
 
     if (x == pozicija_x - 1 && prva->tabla[x][y] == nullptr)
@@ -48,8 +48,9 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      return true;
     }
-    else if (x == pozicija_x - 2 && pozicija_x == 6 && prva->tabla[x][y] == nullptr && prva->tabla[x - 1][y] == nullptr)
+    else if (x == pozicija_x - 2 && pozicija_x == 6 && prva->tabla[x][y] == nullptr && prva->tabla[pozicija_x - 1][y] == nullptr)
     {
       int px = pozicija_x;
       int py = pozicija_y;
@@ -57,9 +58,13 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      return true;
     }
     else
+    {
       cout << "Nije moguce izvrsiti potez" << endl;
+      return false;
+    }
   }
   else // Ako je crni
   {
@@ -73,13 +78,13 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
-      return;
+      return true;
     }
 
     if (x < pozicija_x || y != pozicija_y)
     {
       cout << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << endl;
-      return;
+      return false;
     }
     if (x == pozicija_x + 1 && prva->tabla[x][y] == nullptr)
     {
@@ -89,8 +94,9 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      return true;
     }
-    else if (x == pozicija_x + 2 && pozicija_x == 1 && prva->tabla[x][y] == nullptr && prva->tabla[x + 1][y] == nullptr)
+    else if (x == pozicija_x + 2 && pozicija_x == 1 && prva->tabla[x][y] == nullptr && prva->tabla[pozicija_x + 1][y] == nullptr)
     {
       int px = pozicija_x;
       int py = pozicija_y;
@@ -98,8 +104,10 @@ void Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      return true;
     }
     else
-      cout << "Nije moguce izvrsiti potez" << endl;
+      cout << "Nije moguce izvrsiti poteza" << endl;
+      return false;
   }
 }

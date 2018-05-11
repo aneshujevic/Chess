@@ -26,7 +26,7 @@ public:
   int get_x();
   int get_y();
   std::string get_simbol();
-  virtual void pomeri(int, int) = 0;
+  virtual bool pomeri(int, int) = 0;
 };
 
 #endif

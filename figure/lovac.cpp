@@ -9,60 +9,61 @@ Lovac::Lovac(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
   else
     simbol = "\u265d";
 }
-void Lovac::pomeri(int x, int y)
+bool Lovac::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
     cout << "Nije moguce izvrsiti potez." << endl;
-    return;
+    return false;
   }
 
-  if (x - pozicija_x != y - pozicija_y)
+  if (abs(x - pozicija_x) != abs(y - pozicija_y))
   {
     cout << "Nije moguce izvrsiti potez." << endl;
-    return;
+    return false;
   }
+
   if (x > pozicija_x && y > pozicija_y)
   {
-    for (int i = pozicija_x, j = pozicija_y; i <= x && j <= y; i++, j++)
+    for (int i = pozicija_x + 1, j = pozicija_y + 1; i < x && j < y; i++, j++)
     {
       if (prva->tabla[i][j] != NULL)
       {
         cout << "Nije moguce preskakati figure lovcem!" << endl;
-        return;
+        return false;
       }
     }
   }
   else if (x > pozicija_x && y < pozicija_y)
   {
-    for (int i = pozicija_x, j = pozicija_y; i <= x && j >= y; i++, j--)
+    for (int i = pozicija_x + 1, j = pozicija_y - 1; i < x && j > y; i++, j--)
     {
       if (prva->tabla[i][j] != NULL)
       {
         cout << "Nije moguce preskakati figure lovcem!" << endl;
-        return;
+        return false;
       }
     }
   }
   else if (x < pozicija_x && y > pozicija_y)
   {
-    for (int i = pozicija_x, j = pozicija_y; i >= x && j <= y; i--, j++)
+    for (int i = pozicija_x - 1, j = pozicija_y + 1; i > x && j < y; i--, j++)
     {
       if (prva->tabla[i][j] != NULL)
       {
         cout << "Nije moguce preskakati figure lovcem!" << endl;
-        return;
+        return false;
       }
     }
   }
   else
   {
-    for (int i = pozicija_x, j = pozicija_y; i >= x && j >= y; i--, j--)
+    for (int i = pozicija_x - 1, j = pozicija_y - 1; i > x && j > y; i--, j--)
     {
       if (prva->tabla[i][j] != NULL)
       {
         cout << "Nije moguce preskakati figure lovcem!" << endl;
-        return;
+        return false;
       }
     }
   }
@@ -71,8 +72,8 @@ void Lovac::pomeri(int x, int y)
   {
     if (prva->tabla[x][y]->get_bela() == this->get_bela())
     {
-      cout << "Nije moguce izvrsiti potez." << endl;
-      return;
+      cout << "Nije moguce izvrsiti potez. Figura koju pokusavate da pojedete je iste boje." << endl;
+      return false;
     }
     else
     {
@@ -86,4 +87,5 @@ void Lovac::pomeri(int x, int y)
   pozicija_y = y;
   prva->tabla[x][y] = this;
   prva->tabla[px][py] = nullptr;
+  return true;
 }
