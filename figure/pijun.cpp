@@ -1,5 +1,6 @@
 #include "pijun.h"
 #include "../figura.h"
+#include "../potez.h"
 
 Pijun::Pijun(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
 {
@@ -31,6 +32,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 0) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
 
@@ -48,6 +50,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 0) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
     else if (x == pozicija_x - 2 && pozicija_x == 6 && prva->tabla[x][y] == nullptr && prva->tabla[pozicija_x - 1][y] == nullptr)
@@ -58,6 +61,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 0) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
     else
@@ -78,6 +82,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 7) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
 
@@ -94,6 +99,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 7) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
     else if (x == pozicija_x + 2 && pozicija_x == 1 && prva->tabla[x][y] == nullptr && prva->tabla[pozicija_x + 1][y] == nullptr)
@@ -104,6 +110,7 @@ bool Pijun::pomeri(int x, int y)
       pozicija_y = y;
       prva->tabla[x][y] = this;
       prva->tabla[px][py] = nullptr;
+      if (x == 7) pijun_do_kraja(x, y, prva, bela);
       return true;
     }
     else

@@ -38,3 +38,37 @@ bool make_input(string unos, int &x, int &y)
     x = 8 - broj;
     return true;
 }
+
+void pijun_do_kraja(int x, int y, Tabla *prva, bool bela)
+{
+    int izbor;
+    cout << "Izaberite koju figuru zelite na mesto pijuna:" << endl;
+    cout << "1. Kraljica" << endl;
+    cout << "2. Konj" << endl;
+    cout << "3. Top" << endl;
+    cout << "4. Lovac" << endl;
+    cout << "5. Pijun" << endl;
+    cin >> izbor;
+
+    switch(izbor)
+    {
+        case 1:
+            prva->tabla[x][y] = new Kraljica(x, y, bela, prva);
+            break;
+        case 2:
+            prva->tabla[x][y] = new Konj(x, y, bela, prva);
+            break;
+        case 3:
+            prva->tabla[x][y] = new Top(x, y, bela, prva);
+            break;
+        case 4:
+            prva->tabla[x][y] = new Lovac(x, y, bela, prva);
+            break;
+        case 5: break;
+
+        default:
+            cout << "Unesite odgovarajuci broj!" << endl;
+            pijun_do_kraja(x, y, prva, bela);
+    }
+
+}
