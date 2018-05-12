@@ -1,5 +1,6 @@
 #include "tabla.h"
 #include "potez.h"
+#include "interface.h"
 #include <iostream>
 #include <string>
 
@@ -27,11 +28,29 @@ int main()
   wait_msg();
   clear_screen();
 
-  cout<<"Molimo da prvi igrac unese svoje ime:"
-  cin>>player1;
-  cout<<"Molimo da drugi igrac unese svoje ime:"
-  cin>>player2;
+  while(1)
+  {
+    bool kraj=false;
+    cout<<"Molimo da prvi igrac unese svoje ime:";
+    cin>>player1;
+    cout<<"Molimo da drugi igrac unese svoje ime:";
+    cin>>player2;
+    
+    if(same_strings(player1,player2))
+    {
+        cout<<"Molimo da unesete razlicita imena igraca."<<endl;
+        wait_msg();
+        clear_screen();
+    }
+    else
+        kraj=true;
+    
+    if(kraj) break;
+  }
 
+        
+  
+  
   while (true)
   {
     fflush(stdout);
@@ -47,18 +66,18 @@ int main()
     if (pojeden_kralj)
     {
       if (beli_na_potezu)
-        cout << "Bravo "<<player2", pobedio/la si." << endl;
+        cout << "Bravo "<<player2<<", pobedio/la si." << endl;
       else
-        cout << "Bravo "<<player1", pobedio/la si." << endl;
+        cout << "Bravo "<<player1<<", pobedio/la si." << endl;
       continue;
     }
 
     prva.prikaz();
 
     if (beli_na_potezu)
-      cout << "Na potezu je igrac cije su figure bele.." << endl;
+      cout << "Na potezu je "<<player1<<".. \t\t*Bele figure*" << endl;
     else
-      cout << "Na potezu je igrac cije su figure crne.." << endl;
+      cout << "Na potezu je "<<player2<<".. \t\t*Crne figure*" << endl;
 
     cout << "Unesite koordinate figure koju zelite pomeriti: ";
     cin >> from_unos;

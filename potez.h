@@ -21,4 +21,8 @@ void pijun_do_kraja(int, int, Tabla *, bool);
 
 bool sah(bool, Tabla *);
 
+void clear_screen();
+
+void wait_msg();
+
 #endif
