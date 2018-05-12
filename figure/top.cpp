@@ -27,9 +27,9 @@ bool Top::pomeri(int x, int y)
   {
     for (int i = pozicija_x + 1; i < x - 1; i++)
     {
-      if (prva->tabla[pozicija_y][i] != nullptr)
+      if (prva->tabla[i][pozicija_y] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure. 1" << endl;
         return false;
       }
     }
@@ -40,7 +40,7 @@ bool Top::pomeri(int x, int y)
     {
       if (prva->tabla[i][pozicija_y] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure. 2" << endl;
         return false;
       }
     }
@@ -49,9 +49,9 @@ bool Top::pomeri(int x, int y)
   {
     for (int i = pozicija_y + 1; i < y - 1; i++)
     {
-      if (prva->tabla[i][pozicija_x] != nullptr)
+      if (prva->tabla[pozicija_x][i] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure. 3" << endl;
         return false;
       }
     }
@@ -60,9 +60,9 @@ bool Top::pomeri(int x, int y)
   {
     for (int i = pozicija_y - 1; i > y + 1; i--)
     {
-      if (prva->tabla[i][pozicija_x] != nullptr)
+      if (prva->tabla[pozicija_x][i] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure. 4" << endl;
         return false;
       }
     }
