@@ -1,5 +1,6 @@
 #include "interface.h"
 
+//konvertuje stringove u format velikog pocetnog slova i ostatka malih slova i proverava da li su dati jednaki
 bool same_strings(string & s1,string & s2)
 {
     if(s1[0] >= 'a' && s1[0] <= 'z')
