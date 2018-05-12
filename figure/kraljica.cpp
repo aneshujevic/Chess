@@ -116,6 +116,12 @@ bool Kraljica::pomeri(int x, int y)
     }
   }
 
+  if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
+  {
+    cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+    return false;
+  }
+
   int px = pozicija_x;
   int py = pozicija_y;
   pozicija_x = x;

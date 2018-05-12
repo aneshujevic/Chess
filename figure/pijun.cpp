@@ -20,6 +20,12 @@ bool Pijun::pomeri(int x, int y)
     return false;
   }
 
+  if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
+  {
+    cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+    return false;
+  }
+
   if (bela)
   {
 

@@ -21,18 +21,12 @@ bool Konj::pomeri(int x, int y)
   if ((abs(pozicija_x - x) == 2 && abs(pozicija_y - y) == 1) ||
       (abs(pozicija_x - x) == 1 && abs(pozicija_y - y) == 2))
   {
-    if (prva->tabla[x][y] != NULL)
+    if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
     {
-      if (prva->tabla[x][y]->get_bela() == this->get_bela())
-      {
-        cout << "Nije moguce izvrsiti potez." << endl;
-        return false;
-      }
-      else
-      {
-        //TODO: SLANJE NA GROBLJE  FIGURE
-      }
+      cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+      return false;
     }
+
     int px = pozicija_x;
     int py = pozicija_y;
     pozicija_x = x;

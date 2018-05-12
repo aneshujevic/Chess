@@ -70,9 +70,9 @@ bool Lovac::pomeri(int x, int y)
 
   if (prva->tabla[x][y] != NULL)
   {
-    if (prva->tabla[x][y]->get_bela() == this->get_bela())
+    if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
     {
-      cout << "Nije moguce izvrsiti potez. Figura koju pokusavate da pojedete je iste boje." << endl;
+      cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
       return false;
     }
     else
