@@ -1,6 +1,8 @@
 #include "konj.h"
 #include "../figura.h"
 
+extern bool pojeden_kralj;
+
 Konj::Konj(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
 {
   this->prva = prva;
@@ -26,6 +28,9 @@ bool Konj::pomeri(int x, int y)
       cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
       return false;
     }
+
+    if (prva->tabla[x][y] != nullptr && (prva->tabla[x][y]->get_simbol() == "\u2654" || prva->tabla[x][y]->get_simbol() == "\u265a"))
+      pojeden_kralj = true;
 
     int px = pozicija_x;
     int py = pozicija_y;

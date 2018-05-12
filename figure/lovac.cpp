@@ -1,6 +1,8 @@
 #include "lovac.h"
 #include "../figura.h"
 
+extern bool pojeden_kralj;
+
 Lovac::Lovac(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
 {
   this->prva = prva;
@@ -80,6 +82,9 @@ bool Lovac::pomeri(int x, int y)
       // TODO: Groblje
     }
   }
+
+  if (prva->tabla[x][y] != nullptr && (prva->tabla[x][y]->get_simbol() == "\u2654" || prva->tabla[x][y]->get_simbol() == "\u265a"))
+      pojeden_kralj = true;
 
   int px = pozicija_x;
   int py = pozicija_y;

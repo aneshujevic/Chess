@@ -1,5 +1,18 @@
 #include "potez.h"
 
+#define C_TOP       "\u265c"
+#define B_TOP       "\u2656"
+#define C_KRALJ     "\u265a"
+#define B_KRALJ     "\u2654"
+#define C_KRALJICA  "\u265b"
+#define B_KRALJICA  "\u2655"
+#define C_LOVAC     "\u265d"
+#define B_LOVAC     "\u2657"
+#define C_KONJ      "\u265e"
+#define B_KONJ      "\u2658"
+#define C_PIJUN     "\u265f"
+#define B_PIJUN     "\u2659"
+
 
 bool make_input(string unos, int &x, int &y)
 {
@@ -71,4 +84,237 @@ void pijun_do_kraja(int x, int y, Tabla *prva, bool bela)
             pijun_do_kraja(x, y, prva, bela);
     }
 
+}
+
+bool sah(bool beli_na_potezu, Tabla *prva)
+{
+    int kralj_x;
+    int kralj_y;
+    string simbol;
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (prva->tabla[i][j]) {
+                if (prva->tabla[i][j]->get_bela() == beli_na_potezu
+                && (prva->tabla[i][j]->get_simbol() == B_KRALJ || prva->tabla[i][j]->get_simbol() == C_KRALJ))
+                {
+                    kralj_x = i;
+                    kralj_y = j;
+                    goto van_petlji;
+                }
+            }
+        }
+    }
+
+
+    van_petlji:
+
+    // Ide dole, gore, desno i levo i trazi da li ima top ili kraljica suprotne boje
+    for (int i = kralj_x+1; i < 8; i++)
+    {
+        bool boja=prva->tabla[i][kralj_y]->get_bela();
+
+        if (prva->tabla[i][kralj_y] && boja == beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][kralj_y] && boja != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][kralj_y]->get_simbol();
+
+            if (simbol == B_TOP || simbol == C_TOP || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+
+    for (int i = kralj_x-1; i >= 0; i--)
+    {
+        bool boja=prva->tabla[i][kralj_y]->get_bela();
+
+        if (prva->tabla[i][kralj_y] && boja == beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][kralj_y] && boja != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][kralj_y]->get_simbol();
+
+            if (simbol == B_TOP || simbol == C_TOP || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+
+    for (int i = kralj_y + 1; i < 8; i++)
+    {
+        bool boja=prva->tabla[kralj_x][i]->get_bela();
+
+        if (prva->tabla[kralj_x][i] && boja == beli_na_potezu)
+            break;
+
+        if (prva->tabla[kralj_x][i] && boja != beli_na_potezu)
+        {
+            simbol = prva->tabla[kralj_x][i]->get_simbol();
+
+            if (simbol == B_TOP || simbol == C_TOP || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+    for (int i = kralj_y-1; i >= 0; i--)
+    {
+        if (prva->tabla[kralj_x][i] && prva->tabla[kralj_x][i]->get_bela() == beli_na_potezu)
+            break;
+
+        if (prva->tabla[kralj_x][i] && prva->tabla[kralj_x][i]->get_bela() != beli_na_potezu)
+        {
+            simbol = prva->tabla[kralj_x][i]->get_simbol();
+
+            if (simbol == B_TOP || simbol == C_TOP || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+
+    // Ide ukoso u svim pravcima i trazi da li ima lovac ili kraljica suprotne boje
+    for (int i = kralj_x+1, j = kralj_y+1; i < 8 && j < 8; i++, j++)
+    {
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() == beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][j]->get_simbol();
+
+            if (simbol == B_LOVAC || simbol == C_LOVAC || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+    for (int i = kralj_x-1, j = kralj_y-1; i >= 0 && j >= 0; i--, j--)
+    {
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() == beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][j]->get_simbol();
+
+            if (simbol == B_LOVAC || simbol == C_LOVAC || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+    for (int i = kralj_x, j = kralj_y; i < 8 && j >= 0; i++, j--)
+    {
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() == beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][j]->get_simbol();
+
+            if (simbol == B_LOVAC || simbol == C_LOVAC || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+    for (int i = kralj_x, j = kralj_y; i >= 0 && j < 8; i--, j++)
+    {
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() != beli_na_potezu)
+            break;
+
+        if (prva->tabla[i][j] && prva->tabla[i][j]->get_bela() != beli_na_potezu)
+        {
+            simbol = prva->tabla[i][j]->get_simbol();
+
+            if (simbol == B_LOVAC || simbol == C_LOVAC || simbol == B_KRALJICA || simbol == C_KRALJICA)
+                return true;
+        }
+    }
+
+    // Da li kralja kaci konj suprotne boje
+    if (kralj_x + 2 < 8 && kralj_y + 1 < 8
+    && prva->tabla[kralj_x + 2][kralj_y + 1]
+    && beli_na_potezu != prva->tabla[kralj_x + 2][kralj_y + 1]->get_bela()
+    && (prva->tabla[kralj_x + 2][kralj_y + 1]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x + 2][kralj_y + 1]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x + 1 < 8 && kralj_y + 2 < 8
+    && prva->tabla[kralj_x + 1][kralj_y + 2]
+    && beli_na_potezu != prva->tabla[kralj_x + 1][kralj_y + 2]->get_bela()
+    && (prva->tabla[kralj_x + 1][kralj_y + 2]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x + 1][kralj_y + 2]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x - 2 >= 0 && kralj_y - 1 >= 0
+    && prva->tabla[kralj_x - 2][kralj_y - 1]
+    && beli_na_potezu != prva->tabla[kralj_x - 2][kralj_y - 1]->get_bela()
+    && (prva->tabla[kralj_x - 2][kralj_y - 1]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x - 2][kralj_y - 1]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x - 1 >= 0 && kralj_y - 2 >= 0
+    && prva->tabla[kralj_x - 1][kralj_y - 2]
+    && beli_na_potezu != prva->tabla[kralj_x - 1][kralj_y - 2]->get_bela()
+    && (prva->tabla[kralj_x - 1][kralj_y - 2]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x - 1][kralj_y - 2]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x + 2 < 8 && kralj_y - 1 >= 0
+    && prva->tabla[kralj_x + 2][kralj_y - 1]
+    && beli_na_potezu != prva->tabla[kralj_x + 2][kralj_y - 1]->get_bela()
+    && (prva->tabla[kralj_x + 2][kralj_y - 1]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x + 2][kralj_y - 1]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x + 1 < 8 && kralj_y - 2 >= 0
+    && prva->tabla[kralj_x + 1][kralj_y - 2]
+    && beli_na_potezu != prva->tabla[kralj_x + 1][kralj_y - 2]->get_bela()
+    && (prva->tabla[kralj_x + 1][kralj_y - 2]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x + 1][kralj_y - 2]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x - 2 >= 0 && kralj_y + 1 < 8
+    && prva->tabla[kralj_x - 2][kralj_y + 1]
+    && beli_na_potezu != prva->tabla[kralj_x - 2][kralj_y + 1]->get_bela()
+    && (prva->tabla[kralj_x - 2][kralj_y + 1]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x - 2][kralj_y + 1]->get_simbol() == B_KONJ))
+        return true;
+
+    if (kralj_x - 1 >= 0 && kralj_y + 2 < 8
+    && prva->tabla[kralj_x - 1][kralj_y + 2]
+    && beli_na_potezu != prva->tabla[kralj_x - 1][kralj_y + 2]->get_bela()
+    && (prva->tabla[kralj_x - 1][kralj_y + 2]->get_simbol() == C_KONJ
+        || prva->tabla[kralj_x - 1][kralj_y + 2]->get_simbol() == B_KONJ))
+        return true;
+
+
+    // Da li postoji pijun koji moze pojesti kralja
+    if (beli_na_potezu)
+    {
+        if (kralj_x - 1 >= 0 && kralj_y - 1 >= 0
+        && prva->tabla[kralj_x - 1][kralj_y - 1]
+        && prva->tabla[kralj_x - 1][kralj_y - 1]->get_simbol() == C_PIJUN)
+         return true;
+
+        if (kralj_x - 1 >= 0 && kralj_y + 1 < 8
+        && prva->tabla[kralj_x - 1][kralj_y + 1]
+        && prva->tabla[kralj_x - 1][kralj_y + 1]->get_simbol() == C_PIJUN)
+         return true;
+    }
+    else
+    {
+        if (kralj_x + 1 < 8 && kralj_y - 1 >= 0
+        && prva->tabla[kralj_x + 1][kralj_y - 1]
+        && prva->tabla[kralj_x + 1][kralj_y - 1]->get_simbol() == B_PIJUN)
+         return true;
+
+        if (kralj_x + 1 < 8 && kralj_y + 1 < 8
+        && prva->tabla[kralj_x + 1][kralj_y + 1]
+        && prva->tabla[kralj_x + 1][kralj_y + 1]->get_simbol() == B_PIJUN)
+         return true;
+    }
+
+    return false;
 }

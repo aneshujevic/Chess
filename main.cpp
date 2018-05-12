@@ -5,6 +5,8 @@
 
 using namespace std;
 
+bool pojeden_kralj = false;
+
 void clear_screen()
 {
 #if defined(_WIN32) || defined(_WIN64)
@@ -44,6 +46,27 @@ int main()
   {
     fflush(stdout);
     clear_screen();
+
+    if(sah(beli_na_potezu, &prva))
+    {
+        cout << "\n\n\n\n\n\t\t\tSAH!\n\n\n\n";
+        system("sleep 2");
+        clear_screen();
+    }
+
+    if (pojeden_kralj)
+    {
+      if (beli_na_potezu)
+      {
+        cout << "Bravo crni, pobedio si." << endl;
+      }
+      else
+      {
+        cout << "Bravo beli, pobedio si." << endl;
+      }
+      continue;
+    }
+
     prva.prikaz();
 
     if (beli_na_potezu)

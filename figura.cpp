@@ -17,7 +17,7 @@ Figura::Figura(bool bela, int x, int y)
 
 bool Figura::get_bela(void)
 {
-  return bela;
+  return this->bela;
 }
 
 void Figura::set_x(int x)

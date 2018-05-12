@@ -19,4 +19,6 @@ bool make_input(string, int &, int &);
 
 void pijun_do_kraja(int, int, Tabla *, bool);
 
+bool sah(bool, Tabla *);
+
 #endif

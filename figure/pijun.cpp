@@ -2,6 +2,8 @@
 #include "../figura.h"
 #include "../potez.h"
 
+extern bool pojeden_kralj;
+
 Pijun::Pijun(int x, int y, bool b, Tabla *prva) : Figura(b, x, y)
 {
   this->prva = prva;
@@ -32,6 +34,9 @@ bool Pijun::pomeri(int x, int y)
     // Kad jede (krece se ukoso)
     if (pozicija_x - x == 1 && abs(y - pozicija_y) == 1)
     {
+      if (prva->tabla[x][y] != nullptr && (prva->tabla[x][y]->get_simbol() == "\u2654" || prva->tabla[x][y]->get_simbol() == "\u265a"))
+      pojeden_kralj = true;
+
       int px = pozicija_x;
       int py = pozicija_y;
       pozicija_x = x;
