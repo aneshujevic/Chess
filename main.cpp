@@ -7,23 +7,6 @@ using namespace std;
 
 bool pojeden_kralj = false;
 
-void clear_screen()
-{
-#if defined(_WIN32) || defined(_WIN64)
-  system("cls");
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-  system("clear");
-#endif
-}
-
-void wait_msg()
-{
-#if defined(_WIN32) || defined(_WIN64)
-  system("TIMEOUT /T 2");
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-  system("sleep 2");
-#endif
-}
 
 int main()
 {
@@ -33,14 +16,21 @@ int main()
   int to_y;
   string from_unos;
   string to_unos;
+  string player1;
+  string player2;
   Tabla prva;
 
   bool beli_na_potezu = true;
 
   clear_screen();
-  cout << "\n\n\n\n\n\t\t\tDOBRODOSLI U MALU SKOLU SAHA HEHEEHEHE\n\n\n\n";
-  system("sleep 2");
+  cout << "\n\n\n\n\n\t\t\tDOBRODOSLI U MALU SKOLU SAHA\n\n\n\n";
+  wait_msg();
   clear_screen();
+
+  cout<<"Molimo da prvi igrac unese svoje ime:"
+  cin>>player1;
+  cout<<"Molimo da drugi igrac unese svoje ime:"
+  cin>>player2;
 
   while (true)
   {
@@ -50,20 +40,16 @@ int main()
     if(sah(beli_na_potezu, &prva))
     {
         cout << "\n\n\n\n\n\t\t\tSAH!\n\n\n\n";
-        system("sleep 2");
+        wait_msg();
         clear_screen();
     }
 
     if (pojeden_kralj)
     {
       if (beli_na_potezu)
-      {
-        cout << "Bravo crni, pobedio si." << endl;
-      }
+        cout << "Bravo "<<player2", pobedio/la si." << endl;
       else
-      {
-        cout << "Bravo beli, pobedio si." << endl;
-      }
+        cout << "Bravo "<<player1", pobedio/la si." << endl;
       continue;
     }
 
