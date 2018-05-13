@@ -35,7 +35,7 @@ int main()
     cin>>player1;
     cout<<"Molimo da drugi igrac unese svoje ime:";
     cin>>player2;
-    
+
     if(same_strings(player1,player2))
     {
         cout<<"Molimo da unesete razlicita imena igraca."<<endl;
@@ -44,13 +44,13 @@ int main()
     }
     else
         kraj=true;
-    
+
     if(kraj) break;
   }
 
-        
-  
-  
+
+
+
   while (true)
   {
     fflush(stdout);

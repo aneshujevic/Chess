@@ -130,12 +130,10 @@ bool sah(bool beli_na_potezu, Tabla *prva)
     // Ide dole, gore, desno i levo i trazi da li ima top ili kraljica suprotne boje
     for (int i = kralj_x+1; i < 8; i++)
     {
-        bool boja=prva->tabla[i][kralj_y]->get_bela();
-
-        if (prva->tabla[i][kralj_y] && boja == beli_na_potezu)
+        if (prva->tabla[i][kralj_y] && prva->tabla[i][kralj_y]->get_bela() == beli_na_potezu)
             break;
 
-        if (prva->tabla[i][kralj_y] && boja != beli_na_potezu)
+        if (prva->tabla[i][kralj_y] && prva->tabla[i][kralj_y]->get_bela() != beli_na_potezu)
         {
             simbol = prva->tabla[i][kralj_y]->get_simbol();
 
@@ -147,12 +145,10 @@ bool sah(bool beli_na_potezu, Tabla *prva)
 
     for (int i = kralj_x-1; i >= 0; i--)
     {
-        bool boja=prva->tabla[i][kralj_y]->get_bela();
-
-        if (prva->tabla[i][kralj_y] && boja == beli_na_potezu)
+        if (prva->tabla[i][kralj_y] && prva->tabla[i][kralj_y]->get_bela() == beli_na_potezu)
             break;
 
-        if (prva->tabla[i][kralj_y] && boja != beli_na_potezu)
+        if (prva->tabla[i][kralj_y] && prva->tabla[i][kralj_y]->get_bela() != beli_na_potezu)
         {
             simbol = prva->tabla[i][kralj_y]->get_simbol();
 
@@ -164,12 +160,10 @@ bool sah(bool beli_na_potezu, Tabla *prva)
 
     for (int i = kralj_y + 1; i < 8; i++)
     {
-        bool boja=prva->tabla[kralj_x][i]->get_bela();
-
-        if (prva->tabla[kralj_x][i] && boja == beli_na_potezu)
+        if (prva->tabla[kralj_x][i] && prva->tabla[kralj_x][i]->get_bela() == beli_na_potezu)
             break;
 
-        if (prva->tabla[kralj_x][i] && boja != beli_na_potezu)
+        if (prva->tabla[kralj_x][i] && prva->tabla[kralj_x][i]->get_bela() != beli_na_potezu)
         {
             simbol = prva->tabla[kralj_x][i]->get_simbol();
 
