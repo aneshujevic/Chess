@@ -12,4 +12,6 @@ void clear_screen();
 
 void wait_msg();
 
+void sah_msg();
+
 #endif

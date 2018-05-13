@@ -50,3 +50,21 @@ bool same_strings(string & s1,string & s2)
 
     return false;
 }
+
+void sah_msg()
+{
+    cout << "       __  __                                                    " << endl;
+    cout << "       \\ \\/ /                                                    " << endl;
+    cout << "        \\__/                                                     " << endl;
+    cout << "      ________         ____________         _____       _____    " << endl;
+    cout << "     |        |       |            |       |     |     |     |   " << endl;
+    cout << "     |   _____|       |    ____    |       |     |     |     |   " << endl;
+    cout << "      \\  \\            |   |____|   |       |     |_____|     |   " << endl;
+    cout << "       \\  \\           |            |       |                 |   " << endl;
+    cout << "        \\  \\          |    ____    |       |                 |   " << endl;
+    cout << "         \\  \\         |   |    |   |       |      _____      |   " << endl;
+    cout << "      ____\\  \\        |   |    |   |       |     |     |     |   " << endl;
+    cout << "     |        |       |   |    |   |       |     |     |     |   " << endl;
+    cout << "     |________|       |___|    |___|       |_____|     |_____|   " << endl;
+    cout << "                                                                 " << endl;
+}
