@@ -14,24 +14,6 @@
 #define B_PIJUN     "\u2659"
 
 
-void clear_screen()
-{
-#if defined(_WIN32) || defined(_WIN64)
-  system("cls");
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-  system("clear");
-#endif
-}
-
-void wait_msg()
-{
-#if defined(_WIN32) || defined(_WIN64)
-  system("TIMEOUT /T 2");
-#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-  system("sleep 2");
-#endif
-}
-
 bool make_input(string unos, int &x, int &y)
 {
     if (!isdigit(unos[1]))

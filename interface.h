@@ -8,4 +8,8 @@ using namespace std;
 
 bool same_strings(string&, string&);
 
+void clear_screen();
+
+void wait_msg();
+
 #endif
