@@ -18,13 +18,13 @@ bool Pijun::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
-    cout << "Nije moguce izvrsiti potez (polje se ne nalazi na tabli)." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez (polje se ne nalazi na tabli)." << RESET << endl;
     return false;
   }
 
   if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
   {
-    cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << RESET << endl;
     return false;
   }
 
@@ -34,6 +34,12 @@ bool Pijun::pomeri(int x, int y)
     // Kad jede (krece se ukoso)
     if (pozicija_x - x == 1 && abs(y - pozicija_y) == 1)
     {
+      if (prva->tabla[x][y] == nullptr)
+      {
+        cout << RED BOLD << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << RESET << endl;
+        return false;
+      }
+      
       if (prva->tabla[x][y] != nullptr && (prva->tabla[x][y]->get_simbol() == "\u2654" || prva->tabla[x][y]->get_simbol() == "\u265a"))
       pojeden_kralj = true;
 
@@ -49,7 +55,7 @@ bool Pijun::pomeri(int x, int y)
 
     if (x > pozicija_x || y != pozicija_y)
     {
-      cout << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << endl;
+      cout << RED BOLD << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << RESET << endl;
       return false;
     }
 
@@ -77,7 +83,7 @@ bool Pijun::pomeri(int x, int y)
     }
     else
     {
-      cout << "Nije moguce izvrsiti potez." << endl;
+      cout << RED BOLD << "Nije moguce izvrsiti potez." << RESET << endl;
       return false;
     }
   }
@@ -87,6 +93,16 @@ bool Pijun::pomeri(int x, int y)
     // Kad jede (krece se ukoso)
     if (x - pozicija_x == 1 && abs(y - pozicija_y) == 1)
     {
+
+      if (prva->tabla[x][y] == nullptr)
+      {
+        cout << RED BOLD << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << RESET << endl;
+        return false;
+      }
+
+      if (prva->tabla[x][y] != nullptr && (prva->tabla[x][y]->get_simbol() == "\u2654" || prva->tabla[x][y]->get_simbol() == "\u265a"))
+      pojeden_kralj = true;
+
       int px = pozicija_x;
       int py = pozicija_y;
       pozicija_x = x;
@@ -99,7 +115,7 @@ bool Pijun::pomeri(int x, int y)
 
     if (x < pozicija_x || y != pozicija_y)
     {
-      cout << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << endl;
+      cout << RED BOLD << "Nije moguce izvrsiti potez (pijun ne moze ici unazad niti levo-desno)." << RESET << endl;
       return false;
     }
     if (x == pozicija_x + 1 && prva->tabla[x][y] == nullptr)
@@ -125,7 +141,7 @@ bool Pijun::pomeri(int x, int y)
       return true;
     }
     else
-      cout << "Nije moguce izvrsiti potez." << endl;
+      cout << RED BOLD << "Nije moguce izvrsiti potez." << RESET << endl;
       return false;
   }
 }

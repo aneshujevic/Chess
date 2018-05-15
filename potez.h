@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "tabla.h"
+#include "colors.h"
 
 #include "figura.h"
 #include "figure/konj.h"

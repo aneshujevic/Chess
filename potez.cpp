@@ -18,13 +18,13 @@ bool make_input(string unos, int &x, int &y)
 {
     if (!isdigit(unos[1]))
     {
-        cout << "Neispravan unos." << endl;
+        cout << RED BOLD << "Neispravan unos." << RESET << endl;
         return false;
     }
 
     if (!isalpha(unos[0]))
     {
-        cout << "Pogresan unos." << endl;
+        cout << RED BOLD << "Pogresan unos." << RESET << endl;
         return false;
     }
     int broj = atoi(&unos[1]);
@@ -40,12 +40,12 @@ bool make_input(string unos, int &x, int &y)
         case 'F': y = 5; break;
         case 'G': y = 6; break;
         case 'H': y = 7; break;
-        default: cout << "Pogresan unos." << endl << "Pokusajte ponovo:" << endl; return false;
+        default: cout << RED BOLD << "Pogresan unos." << endl << YEL BOLD << "Pokusajte ponovo:" << RESET << endl; return false;
     }
 
     if (broj - 1 < 0 || broj - 1 > 7)
     {
-        cout << "Pogresan unos." << endl << "Pokusajte ponovo:" << endl;
+        cout << RED BOLD << "Pogresan unos." << endl << YEL BOLD << "Pokusajte ponovo:" << RESET << endl;
         return false;
     }
     x = 8 - broj;
@@ -55,12 +55,14 @@ bool make_input(string unos, int &x, int &y)
 void pijun_do_kraja(int x, int y, Tabla *prva, bool bela)
 {
     int izbor;
+    cout << GRN BOLD;
     cout << "Izaberite koju figuru zelite na mesto pijuna:" << endl;
     cout << "1. Kraljica" << endl;
     cout << "2. Konj" << endl;
     cout << "3. Top" << endl;
     cout << "4. Lovac" << endl;
     cout << "5. Pijun" << endl;
+    cout << RESET;
     cin >> izbor;
 
     switch(izbor)
@@ -80,7 +82,7 @@ void pijun_do_kraja(int x, int y, Tabla *prva, bool bela)
         case 5: break;
 
         default:
-            cout << "Unesite odgovarajuci broj!" << endl;
+            cout << YEL BOLD << "Unesite odgovarajuci broj!" << RESET << endl;
             pijun_do_kraja(x, y, prva, bela);
     }
 

@@ -15,13 +15,13 @@ bool Lovac::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
-    cout << "Nije moguce izvrsiti potez." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez." << RESET << endl;
     return false;
   }
 
   if (abs(x - pozicija_x) != abs(y - pozicija_y))
   {
-    cout << "Nije moguce izvrsiti potez." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez." << RESET << endl;
     return false;
   }
 
@@ -31,7 +31,7 @@ bool Lovac::pomeri(int x, int y)
     {
       if (prva->tabla[i][j] != NULL)
       {
-        cout << "Nije moguce preskakati figure lovcem!" << endl;
+        cout << RED BOLD << "Nije moguce preskakati figure lovcem!" << RESET << endl;
         return false;
       }
     }
@@ -42,7 +42,7 @@ bool Lovac::pomeri(int x, int y)
     {
       if (prva->tabla[i][j] != NULL)
       {
-        cout << "Nije moguce preskakati figure lovcem!" << endl;
+        cout << RED BOLD << "Nije moguce preskakati figure lovcem!" << RESET << endl;
         return false;
       }
     }
@@ -53,7 +53,7 @@ bool Lovac::pomeri(int x, int y)
     {
       if (prva->tabla[i][j] != NULL)
       {
-        cout << "Nije moguce preskakati figure lovcem!" << endl;
+        cout << RED BOLD << "Nije moguce preskakati figure lovcem!" << RESET << endl;
         return false;
       }
     }
@@ -64,7 +64,7 @@ bool Lovac::pomeri(int x, int y)
     {
       if (prva->tabla[i][j] != NULL)
       {
-        cout << "Nije moguce preskakati figure lovcem!" << endl;
+        cout << RED BOLD << "Nije moguce preskakati figure lovcem!" << RESET << endl;
         return false;
       }
     }
@@ -74,7 +74,7 @@ bool Lovac::pomeri(int x, int y)
   {
     if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
     {
-      cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+      cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << RESET << endl;
       return false;
     }
     else

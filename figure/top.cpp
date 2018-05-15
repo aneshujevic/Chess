@@ -15,13 +15,13 @@ bool Top::pomeri(int x, int y)
 {
   if (x < 0 || x > 7 || y < 0 || y > 7)
   {
-    cout << "Nije moguce izvrsiti potez. Polje je van table" << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez. Polje je van table" << RESET << endl;
     return false;
   }
 
   if (!((x == pozicija_x && y != pozicija_y) || (x != pozicija_x && y == pozicija_y)))
   {
-    cout << "Nije moguce izvrsiti potez. Top se ne moze kretati ukoso." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez. Top se ne moze kretati ukoso." << RESET << endl;
     return false;
   }
 
@@ -31,7 +31,7 @@ bool Top::pomeri(int x, int y)
     {
       if (prva->tabla[i][pozicija_y] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << RESET << endl;
         return false;
       }
     }
@@ -42,7 +42,7 @@ bool Top::pomeri(int x, int y)
     {
       if (prva->tabla[i][pozicija_y] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << RESET << endl;
         return false;
       }
     }
@@ -53,7 +53,7 @@ bool Top::pomeri(int x, int y)
     {
       if (prva->tabla[pozicija_x][i] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << RESET << endl;
         return false;
       }
     }
@@ -64,7 +64,7 @@ bool Top::pomeri(int x, int y)
     {
       if (prva->tabla[pozicija_x][i] != nullptr)
       {
-        cout << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << endl;
+        cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete preskakati figure." << RESET << endl;
         return false;
       }
     }
@@ -72,7 +72,7 @@ bool Top::pomeri(int x, int y)
 
   if (prva->tabla[x][y] != nullptr && prva->tabla[x][y]->get_bela() == this->get_bela())
   {
-    cout << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << endl;
+    cout << RED BOLD << "Nije moguce izvrsiti potez. Ne mozete jesti svoje figure." << RESET << endl;
     return false;
   }
 
