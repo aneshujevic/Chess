@@ -108,7 +108,7 @@ void Tabla::prikaz()
       {
         if (i % 2 == j % 2)
           // std::cout << "⬛";
-          std::cout << "\u2b1b";
+          std::cout << "\u2b1b"; 
         else
           // std::cout << "⬜";
           std::cout << "\u2b1c";

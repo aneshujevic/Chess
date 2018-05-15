@@ -6,11 +6,12 @@
 
 using namespace std;
 
-bool pojeden_kralj = false;
+bool pojeden_kralj;
 
 
 int main()
 {
+  beggining:
   int from_x;
   int from_y;
   int to_x;
@@ -21,10 +22,11 @@ int main()
   string player2;
   Tabla prva;
 
+  pojeden_kralj=false;
   bool beli_na_potezu = true;
 
   clear_screen();
-  cout << "\n\n\n\n\n\t\t\tDOBRODOSLI U MALU SKOLU SAHA\n\n\n\n";
+  sah_msg();
   wait_msg();
   clear_screen();
 
@@ -56,7 +58,7 @@ int main()
     fflush(stdout);
     clear_screen();
 
-    if(sah(beli_na_potezu, &prva))
+    if(sah(beli_na_potezu, &prva) && !pojeden_kralj)
     {
         cout << "\n\n\n\n\n\t\t\tSAH!\n\n\n\n";
         wait_msg();
@@ -65,11 +67,14 @@ int main()
 
     if (pojeden_kralj)
     {
+      cout<<"\n\n\n\n\n\t\t\tSAH - MAT!\n\n\n\n"<<endl;
+      wait_msg();
+      clear_screen();
       if (beli_na_potezu)
         cout << "Bravo "<<player2<<", pobedio/la si." << endl;
       else
         cout << "Bravo "<<player1<<", pobedio/la si." << endl;
-      continue;
+      break;
     }
 
     prva.prikaz();
@@ -117,6 +122,23 @@ int main()
       continue;
     }
     beli_na_potezu = !beli_na_potezu; //Menja se koje je boje igrac na potezu
+  }
+
+  while(true)
+  {
+    cout<<"Zelite li novu partiju? "<<endl;
+    string odgovor;
+    string da="Da",ne="Ne";
+    cin>>odgovor;
+
+    if(same_strings(odgovor,da))
+      goto beggining;
+    else if(same_strings(odgovor,ne))
+      break;
+    else
+      cout<<"Molimo odgovorite sa da ili ne."<<endl;
+    wait_msg();
+    clear_screen();
   }
 
   return 0;

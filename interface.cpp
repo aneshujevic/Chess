@@ -53,6 +53,7 @@ bool same_strings(string & s1,string & s2)
 
 void sah_msg()
 {
+    cout << "                         WELCOME TO                               " << endl;
     cout << "       __  __                                                     " << endl;
     cout << "       \\ \\/ /                                                   " << endl;
     cout << "        \\__/                                                     " << endl;
